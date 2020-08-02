@@ -3,5 +3,4 @@ gunicorn
 fastai
 torch
 flask_cors
-random
 gdown
