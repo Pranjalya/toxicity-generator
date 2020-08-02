@@ -45,7 +45,7 @@ def get_sentences(request):
     
     toxics = random.sample(all_toxics, 10)
 
-    return all_toxics
+    return toxics
 
 
 # route for prediction
