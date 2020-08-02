@@ -3,15 +3,22 @@ import gdown
 from fastai.basic_train import load_learner
 from flask_cors import CORS,cross_origin
 import random
+import os
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
+try:
+    os.mkdir('model')
+except:
+    print("Can't do that")
+
 # load the learner
 url = 'https://drive.google.com/uc?id=13a-VopEnvc2YTji4SbmhqxFGkxnVjw3j'
-output = './model/usemodel/export.pkl'
+output = 'model/export.pkl'
+
 gdown.download(url, output, quiet=True)
-learn = load_learner('./model/usemodel')
+learn = load_learner(path='./model', file='export.pkl')
 
 
 def get_sentences(request):
