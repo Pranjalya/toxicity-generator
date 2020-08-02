@@ -25,12 +25,12 @@ def get_sentences(request):
     """
     Function to return new set of abuses.
     """
-    shower_me = 35
+    shower_me = 20
     toxic_counter = 0
     all_toxics = []
 
-    for i in range(250):
-        sent = learn.predict("xxbos ", n_words=50, temperature=0.8)
+    for i in range(30):
+        sent = learn.predict("xxbos ", n_words=40, temperature=0.8)
         sents = sent.split("xxbos ")
         sents = sents[1:-1]
 
