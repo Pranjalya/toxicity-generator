@@ -10,7 +10,7 @@ CORS(app, support_credentials=True)
 # load the learner
 url = 'https://drive.google.com/uc?id=13a-VopEnvc2YTji4SbmhqxFGkxnVjw3j'
 output = './model/usemodel/export.pkl'
-gdown.download(url, output, quiet=False)
+gdown.download(url, output, quiet=True)
 learn = load_learner('./model/usemodel')
 
 
