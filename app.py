@@ -51,7 +51,7 @@ def get_sentences(request):
 # route for prediction
 @app.route('/gettoxic', methods=['POST'])
 def predict():
-    return jsonify(predict_single(request))
+    return jsonify(get_sentences(request))
 
 if __name__ == '__main__':
     app.run()
