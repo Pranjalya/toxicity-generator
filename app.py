@@ -21,7 +21,7 @@ gdown.download(url, output, quiet=True)
 learn = load_learner(path='./model', file='export.pkl')
 
 
-def get_sentences(request):
+def get_sentences():
     """
     Function to return new set of abuses.
     """
@@ -48,10 +48,17 @@ def get_sentences(request):
     return toxics
 
 
+#default route
+@app.route("/")
+def default():
+    return 'Please use right end point'
+
 # route for prediction
 @app.route('/gettoxic', methods=['POST'])
 def predict():
-    return jsonify(get_sentences(request))
+    toxic_sentences = get_sentences()
+    result_toxic_dict = result_dict = {'toxic_sentences': toxic_sentences}
+    return jsonify(result_toxic_dict)
 
 if __name__ == '__main__':
     app.run()
