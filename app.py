@@ -1,9 +1,16 @@
-from flask import Flask, request, jsonify
-import gdown
-from fastai.basic_train import load_learner
-from flask_cors import CORS,cross_origin
-import random
 import os
+import random
+import gdown
+
+import torch
+import fastai 
+from fastai.basic_train import load_learner
+
+from flask import Flask, request, jsonify
+from flask_cors import CORS,cross_origin
+
+
+fastai.device = torch.device('cpu')
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
